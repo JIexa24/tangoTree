@@ -24,7 +24,7 @@ tangoTree * createTangoTree(long long  _value)
 tangoTree * initTangoTree(tangoTree *_tree)
 {
 	
-	long long  _value = rand()%(count * 2 -1) + 1;
+	long long  _value = rand()%(count * 2 );
 	if (_tree == NULL) {
 		_tree = createTangoTree(_value);
 	} else {
