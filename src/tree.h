@@ -1,6 +1,7 @@
 #ifndef TREE_H
 #define TREE_H
 
+#include <sys/time.h>
 #include <stdio.h>
 #include <stdlib.h>
 

@@ -1,7 +1,13 @@
 #include "tree.h"
 extern long long count;
+extern long long ii;
+extern long long *a;
+
 tangoTree * createTangoTree(long long  _value)
 {
+	
+	a[ii++] = _value;
+	
 //	printf("\n%d", _value);
 	tangoTree *_tangoTree = (tangoTree *)malloc(sizeof(tangoTree));
 	if(_tangoTree == NULL) exit(1);
@@ -18,7 +24,7 @@ tangoTree * createTangoTree(long long  _value)
 tangoTree * initTangoTree(tangoTree *_tree)
 {
 	
-	long long  _value = rand()%(count * 2);
+	long long  _value = rand()%(count * 2 -1) + 1;
 	if (_tree == NULL) {
 		_tree = createTangoTree(_value);
 	} else {
@@ -218,12 +224,12 @@ struct nodeTree * searchValue(long long  _value, splayTree *_tree)
   struct nodeTree *cursor = _tree->node;
 	int searchSuccess = 0;
 	while (1) {
-		printf("\n--Error addr %d", cursor);
+		//printf("\n--Error addr %d", cursor);
 		if(cursor!=NULL){
-		printf("\n--Error addr %d", cursor->nextTree);
-		printf("\n--Error addr %d", cursor->left);
-		printf("\n--Error addr %d", cursor->right);
-		printf("\n--Error addr %d", cursor->value);
+	//	printf("\n--Error addr %d", cursor->nextTree);
+		//printf("\n--Error addr %d", cursor->left);
+//		printf("\n--Error addr %d", cursor->right);
+//		printf("\n--Error addr %d", cursor->value);
 		} else {
 			
 			searchSuccess = 0;
@@ -246,13 +252,13 @@ struct nodeTree * searchValue(long long  _value, splayTree *_tree)
 		
 		if (_value < cursor->value) {
 			if(cursor->left != NULL) {
-									printf("\n--Error  search cursor->left");
+	//								printf("\n--Error  search cursor->left");
 
 					cursor = cursor->left;
 			} else {
 				if (cursor->nextTree != NULL) {
 
-									printf("\n--Error  search cursor->nex->node");
+		//							printf("\n--Error  search cursor->nex->node");
 					cursor = cursor->nextTree->node;
 				} else {
 					searchSuccess = 0;
@@ -261,12 +267,12 @@ struct nodeTree * searchValue(long long  _value, splayTree *_tree)
 			}
 		} else if (_value > cursor->value) {
 			if(cursor->right != NULL) {
-									printf("\n--Error  search cursor->right");
+//				/					printf("\n--Error  search cursor->right");
 
 					cursor = cursor->right;
 			} else {
 				if (cursor->nextTree != NULL) {
-									printf("\n--Error  search cursor->nex->node2");
+			//						printf("\n--Error  search cursor->nex->node2");
 
 					cursor = cursor->nextTree->node;
 				} else {
@@ -302,7 +308,7 @@ void restructTree(long long  _value,splayTree *_tree)
 		if (_value < cursor->value) {
 			if (cursor->left != NULL) {
 				cursor = cursor->left;
-					printf("\n--Error cursor->left");
+		//			printf("\n--Error cursor->left");
 					continue;
 			} else {
 				if (cursor->nextTree != NULL){
@@ -311,7 +317,7 @@ void restructTree(long long  _value,splayTree *_tree)
 					cursor->left = tmp;
 					
 					cursor = cursor->left;
-					printf("\n--Error cursor->left 2");
+	//				printf("\n--Error cursor->left 2");
 					continue;
 				} else {
 					break;
@@ -320,7 +326,7 @@ void restructTree(long long  _value,splayTree *_tree)
 		} else if (_value > cursor->value) {
 			if (cursor->right != NULL) {
 					cursor = cursor->right;
-					printf("\n--Error cursor->right");
+				//	printf("\n--Error cursor->right");
 					continue;
 			} else {
 				if (cursor->nextTree != NULL){
@@ -328,7 +334,7 @@ void restructTree(long long  _value,splayTree *_tree)
 					cursor->nextTree->node = cursor->left;
 					cursor->right = tmp;
 					
-					printf("\n--Error cursor->right");
+			//		printf("\n--Error cursor->right");
 					cursor = cursor->right;
 										continue;
 
