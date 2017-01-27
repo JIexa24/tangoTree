@@ -3,6 +3,11 @@ extern long long count;
 extern long long ii;
 extern long long *a;
 
+int getrand(int min, int max)
+{
+    return (double)rand() / (RAND_MAX + 1.0) * (max - min) + min;
+}
+
 tangoTree * createTangoTree(long long  _value)
 {
 	
@@ -24,7 +29,7 @@ tangoTree * createTangoTree(long long  _value)
 tangoTree * initTangoTree(tangoTree *_tree)
 {
 	
-	long long  _value = rand()%(count * 2 );
+	long long  _value = getrand(-1000000000,1000000000);
 	if (_tree == NULL) {
 		_tree = createTangoTree(_value);
 	} else {
@@ -35,17 +40,13 @@ tangoTree * initTangoTree(tangoTree *_tree)
 		
 		while (cursor != NULL) {
 			prev = cursor;
-			if (_value < cursor->value) {
+			if (_value <= cursor->value) {
 			  cursor = cursor->left;
 			  isLeft = 1;
 			} else if (_value > cursor->value){
 			  cursor = cursor->right;
 				isLeft = 0;
-			} else if (_value == cursor->value){
-				cursor->value = _value;
-				isLeft=-1;
-				break;
-			}
+			} 
 		}
 			if (isLeft == 1) {
 				prev->left = createTangoTree(_value);

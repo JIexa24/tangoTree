@@ -8,6 +8,8 @@
 #define LEFT 0
 #define RIGHT 1
 
+int getrand(int min, int max);
+
 struct nodeTree;
 
 typedef struct TangoTree {
