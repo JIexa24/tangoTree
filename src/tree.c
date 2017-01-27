@@ -225,14 +225,8 @@ struct nodeTree * searchValue(long long  _value, splayTree *_tree)
   struct nodeTree *cursor = _tree->node;
 	int searchSuccess = 0;
 	while (1) {
-		//printf("\n--Error addr %d", cursor);
-		if(cursor!=NULL){
-	//	printf("\n--Error addr %d", cursor->nextTree);
-		//printf("\n--Error addr %d", cursor->left);
-//		printf("\n--Error addr %d", cursor->right);
-//		printf("\n--Error addr %d", cursor->value);
-		} else {
-			
+		
+		if(cursor==NULL){
 			searchSuccess = 0;
 			break;
 		}
@@ -253,13 +247,10 @@ struct nodeTree * searchValue(long long  _value, splayTree *_tree)
 		
 		if (_value < cursor->value) {
 			if(cursor->left != NULL) {
-	//								printf("\n--Error  search cursor->left");
 
 					cursor = cursor->left;
 			} else {
 				if (cursor->nextTree != NULL) {
-
-		//							printf("\n--Error  search cursor->nex->node");
 					cursor = cursor->nextTree->node;
 				} else {
 					searchSuccess = 0;
@@ -268,12 +259,10 @@ struct nodeTree * searchValue(long long  _value, splayTree *_tree)
 			}
 		} else if (_value > cursor->value) {
 			if(cursor->right != NULL) {
-//				/					printf("\n--Error  search cursor->right");
 
 					cursor = cursor->right;
 			} else {
 				if (cursor->nextTree != NULL) {
-			//						printf("\n--Error  search cursor->nex->node2");
 
 					cursor = cursor->nextTree->node;
 				} else {
@@ -309,7 +298,6 @@ void restructTree(long long  _value,splayTree *_tree)
 		if (_value < cursor->value) {
 			if (cursor->left != NULL) {
 				cursor = cursor->left;
-		//			printf("\n--Error cursor->left");
 					continue;
 			} else {
 				if (cursor->nextTree != NULL){
@@ -318,7 +306,6 @@ void restructTree(long long  _value,splayTree *_tree)
 					cursor->left = tmp;
 					
 					cursor = cursor->left;
-	//				printf("\n--Error cursor->left 2");
 					continue;
 				} else {
 					break;
@@ -327,7 +314,6 @@ void restructTree(long long  _value,splayTree *_tree)
 		} else if (_value > cursor->value) {
 			if (cursor->right != NULL) {
 					cursor = cursor->right;
-				//	printf("\n--Error cursor->right");
 					continue;
 			} else {
 				if (cursor->nextTree != NULL){
@@ -335,7 +321,6 @@ void restructTree(long long  _value,splayTree *_tree)
 					cursor->nextTree->node = cursor->left;
 					cursor->right = tmp;
 					
-			//		printf("\n--Error cursor->right");
 					cursor = cursor->right;
 										continue;
 

@@ -34,7 +34,7 @@ srand(time(NULL));
   
   tangoTree *headTangoTree = NULL;
   headTangoTree = createTangoTree(getrand(-1000000000,1000000000));
-double time = wtime();
+	double time = wtime();
 	for(long long  i = 0; i < count - 1; i++){
 		headTangoTree = initTangoTree(headTangoTree);
 	}
@@ -47,18 +47,6 @@ double time = wtime();
 	
 	printf("\nN=%ld, time = %.12lf", ii, time);
   //printf("--%ld !!!!  %d",ii,headSplayTrees->node->value);
-
-	/*
-	for (long long  i = 0; i < count; i++){
-		coll = rand()%(count * 2);  
-		struct nodeTree *tst = searchValue(coll, headSplayTrees);
-		if (tst != NULL) { 
-    //printf("------------------------------------------------------------------------------restr coll %d", coll);
-			col++;
-  	  restructTree(tst->value, headSplayTrees);
-		}
-	}
-	printf("\n-------%d\n\n",col);*/
 
 	long long max = a[0],imin = 0;
 	long long min = a[0],imax = 0;
@@ -87,7 +75,7 @@ double time = wtime();
 	
 	time2 = wtime() - time2;
 
-	printf("\nN=%ld,%ld time = %.12lf\n\n ",ii,max, time2);
+	//printf("\nN=%ld,%ld time = %.12lf\n\n ",ii,max, time2);
 	fprintf(datamax,"\nN=%ld,%ld %ld time = %.12lf ",ii,max,imax, time2);
 	system("pause");
  	double time3 = wtime(); 
@@ -99,7 +87,7 @@ double time = wtime();
 		}
 	}
 	time3 = wtime() - time3;
-	printf("\nN=%ld,%ld time = %.16lf", ii,min, time3);
+	//printf("\nN=%ld,%ld time = %.16lf", ii,min, time3);
 	fprintf(datamin,"\nN=%ld,%ld %ld time = %.12lf ",ii,min,imin, time3);
 
   fclose(datamax);
