@@ -88,7 +88,7 @@ splayTree * createSplayTrees(tangoTree *_tangoTree)
 	_tree->node->left = NULL;
 	_tree->node->right = NULL;
 	_tree->node->nextTree = NULL;
-	
+	/*
 	while (1) {	
 	  //cursorSplay = _tree;	
 
@@ -216,7 +216,7 @@ splayTree * createSplayTrees(tangoTree *_tangoTree)
 			}
 		}
 		i++;
-	}
+	}*/
 	return _tree;
 }
 
@@ -259,7 +259,6 @@ struct nodeTree * searchValue(long long  _value, splayTree *_tree)
 			}
 		} else if (_value > cursor->value) {
 			if(cursor->right != NULL) {
-
 					cursor = cursor->right;
 			} else {
 				if (cursor->nextTree != NULL) {

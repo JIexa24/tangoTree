@@ -2,7 +2,7 @@
 
 #include <sys/time.h>
 #include <stdio.h>
-
+#include <time.h>
 double wtime()
 {
     struct timeval t;
@@ -71,13 +71,13 @@ srand(time(NULL));
   	 	restructTree(tst->value, headSplayTrees);
 		}
 	}
-	system("pause");
+	//system("pause");
 	
 	time2 = wtime() - time2;
 
-	//printf("\nN=%ld,%ld time = %.12lf\n\n ",ii,max, time2);
-	fprintf(datamax,"\nN=%ld,%ld %ld time = %.12lf ",ii,max,imax, time2);
-	system("pause");
+	printf("\nN=%ld,%ld time = %.12lf\n\n ",ii,max, time2);
+	//fprintf(datamax,"\nN=%ld,%ld %ld time = %.12lf ",ii,max,imax, time2);
+	//system("pause");
  	double time3 = wtime(); 
 	for(int i = 0; i < 1000; i++){
 		tst = searchValue(min, headSplayTrees);
@@ -87,8 +87,8 @@ srand(time(NULL));
 		}
 	}
 	time3 = wtime() - time3;
-	//printf("\nN=%ld,%ld time = %.16lf", ii,min, time3);
-	fprintf(datamin,"\nN=%ld,%ld %ld time = %.12lf ",ii,min,imin, time3);
+	printf("\nN=%ld,%ld time = %.16lf", ii,min, time3);
+	//fprintf(datamin,"\nN=%ld,%ld %ld time = %.12lf ",ii,min,imin, time3);
 
   fclose(datamax);
   fclose(datamin); 
